@@ -22,6 +22,15 @@ print(df.isnull().sum())
 df.info()
 
 
+#%% verificar soma de cada atributo em parametro. 
+for attr in df.columns:
+    print('\n*', attr, '*')
+    print(X[attr].value_counts())
+
+
+#%% maybe drop this First, the veil-type variable has only one value, 'p', meaning, every mushroom has the same veil-type. And because, every mushrrom has that same veil-type: that column doesn't tell us anything useful - so we can drop that column.
+df.drop(['veil-type'], axis=1, inplace=True)
+
 # %% Analise exploratória de dados ===================================================
 
 #ordinal and nominal
